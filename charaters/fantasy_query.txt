@@ -1,0 +1,21 @@
+--- STATS FORMAT ---
+
+SELECT * FROM stats
+
+INSERT INTO charinfo.stats (strength,constitution,wisdom,dexterity,intelegence,charisma, created_at, updated_at)
+VALUE(10,11,12,13,14,15, NOW(), NOW())
+
+
+--- CHARATER FORMAT ---
+
+SELECT * FROM charater
+
+INSERT INTO charinfo.charater (charater_dis, name, race, job, gender, charater_bio, height, weight,created_at,updated_at)
+VALUE("Eros Sev","Blond Hair, Grey Eyes, and Bronze Skin tone","Sun Elf","Sorcerer","Male","Sage",6,126, NOW(), NOW())
+VALUE("William Stongrave","White Hair, Red Eyes, and Pale Skin tone","Moon Elf","Fighter","Male","Soilder",6,130, NOW(), NOW())
+
+
+--- VIEW CHARATER ---
+
+select * from dojos_and_ninjas_schema.ninja;
+where dojo_dojo_id = 4

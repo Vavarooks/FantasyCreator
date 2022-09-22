@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fantasy Creator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <h1>Your adventure begins here!</h1>
+                <a type="button" class="btn btn-light" href="/home">Home</a>
+                <a type="button" class="btn btn-light" href="/created">Character View</a>
+                <a type="button" class="btn btn-light" href="/auction">Auction House</a>
+                <a type="button" class="btn btn-light" href="/adventure">Adventure</a>
+                <a type="button" class="btn btn-light" href="/guild">Guild Hall</a>
+                <a type="button" class="btn btn-sm btn-outline-secondary" href="/logout">Log Out</a>
+            </a>
+        </div>
+    </nav>
+    <div class="card">
+        <img src="{{url_for('static',filename='/assets/mountains.jpg')}}" class="card-img" alt="mountains">33
+        <div class="card-img-overlay">
+            <div class="card forms2 d-block mx-auto w-50 my-2">
+                <h5 class="card-title">
+                    Begin!
+                </h5>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="{{url_for('static',filename='/assets/archer-img.png')}}" class="card-img-top" alt="archer">
+                            <div class="card-body">
+                                <h5 class="card-title">Quest Cards</h5>
+                                <p class="card-text">Help this archer find his lost arrows!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="{{url_for('static',filename='/assets/rogue-img.png')}}" class="card-img-top" alt="rogue">
+                            <div class="card-body">
+                                <h5 class="card-title">Hunting Cards</h5>
+                                <p class="card-text">Find the bandit and catch them!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="{{url_for('static',filename='/assets/knight-img.png')}}" class="card-img-top" alt="knight">
+                            <div class="card-body">
+                                <h5 class="card-title">Journey Cards</h5>
+                                <p class="card-text">Explore the land and discover lost ruins or dungeons!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-text-center">
+                    <div id="journey"></div>
+                    <button type="button" class="btn btn-outline-secondary" id="journeyBtn">Journey</button>
+                    <div id="quest"></div>
+                    <button type="button" class="btn btn-outline-secondary" id="questBtn">Quest</button>
+                    <div id="hunt"></div>
+                    <button type="button" class="btn btn-outline-secondary" id="huntBtn">hunt</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="{{url_for('static',filename='script.js')}}"></script>
+</body>
+
+</html>
