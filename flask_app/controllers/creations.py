@@ -122,7 +122,7 @@ def created():
     # session["logged_id"] == Sheet.save(data)
     print("Made Character")
     return redirect("/home")
-    # return redirect('/created/'+ str(image.string))
+    # return redirect('/created/'+ str())
 
 @app.route('/result/<int:id>')
 def result(id):
@@ -133,7 +133,8 @@ def result(id):
         flash("Log in to veiw!")
         return redirect("/")
     one_character = Sheet.get_one(data)
-    # print(one_character)
+    one_character.img_data = one_character.img_data.decode("utf-8")
+    # print(one_character.img_data)
     operator = {
         "id": session["logged_id"]
     }

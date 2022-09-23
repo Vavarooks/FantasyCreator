@@ -11,6 +11,9 @@
     top: 120px;
 }
 
+.img-size{
+    height: 220px;
+}
 
 .home{
     background-image: url("/flask_app/static/assets/kingdom.jpg");
