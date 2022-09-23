@@ -16,7 +16,6 @@
             <a class="navbar-brand">
                 <h1>Character View</h1>
                 <a type="button" class="btn btn-light" href="/home">Home</a>
-                <a type="button" class="btn btn-light" href="/created">Character View</a>
                 <a type="button" class="btn btn-light" href="/auction">Auction House</a>
                 <a type="button" class="btn btn-light" href="/adventure">Adventure</a>
                 <a type="button" class="btb btn-light" href="/guild">Guild Hall</a>
@@ -74,8 +73,8 @@
                             <h5>Charisma:</h5>
                             <p>{{one_character.charisma}}</p>
                     </div>
-                    {% if session["logged_id"] == one_character.user_id.id%}
-                        <a class="btn btn-secondary" type="button" href="/edit">Edit</a>
+                    {% if one_character.users_id == session["logged_id"] %}
+                        <a class="btn btn-secondary" type="button" href="/edit/{{one_character.id}}">Edit</a>
                         <a class="btn btn-secondary" type="button" href="/delete/{{one_character.id}}">Delete</a>
                     {% endif %}
                     <a class="btn btn-secondary" type="button">Friend</a>

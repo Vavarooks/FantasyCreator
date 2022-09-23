@@ -1,28 +1,4 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-import random
-
-class Attacks:
-    def __init__(self, mana = 100, stamina = 100):
-        self.mana = mana
-        self.stamina = stamina
-        self.hp_bar = 100
-    def attack(self, opponent):
-        damage = 10
-        print(f"{Sheet.name} Attacked {opponent.Sheet.name} and delt {damage} damage!!!")
-        opponent.hp_bar += damage
-
-        chance = random.randint(0 , 9)
-        if chance == 0:
-            print(f"Critical Hit! {Sheet.name} Attacked {opponent.Sheet.name} and delt {damage} more damage!!!!")
-            opponent.hp_bar += 5
-
-class Image:
-    def __int__(self,data):
-        self.id = data["id"]
-        self.img_name = data["img_name"]
-        self.img_data = data["img_data"]
-        self.created_at = data["created_at"]
-        self.updated_at = data["updated_at"]
 
 class Sheet:
     def __init__(self, data):
@@ -37,7 +13,7 @@ class Sheet:
         self.character_bio = data["character_bio"]
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
-        self.user_id = data["users_id"]
+        self.users_id = data["users_id"]
         self.strength = data["strength"]
         self.constatution = data["constatution"]
         self.wisdom = data["wisdom"]
@@ -48,12 +24,14 @@ class Sheet:
     
     @classmethod
     def save(cls, data ):
-        query = "INSERT INTO charinfo.character (character_dis, name, race, gender, job, character_bio , created_at, updated_at, users_id, strength, constatution, dexterity, wisdom, intelegence, charisma, img_data) VALUES ( %(character_dis)s, %(name)s , %(race)s, %(gender)s , %(job)s, %(character_bio)s , NOW() , NOW(), %(users_id)s, %(strength)s, %(constatution)s, %(dexterity)s, %(wisdom)s, %(intelegence)s, %(charisma)s, %(img_data)s);"
-        return connectToMySQL('charinfo').query_db( query, data )
+        # query = "INSERT INTO charinfo.character (character_dis, height, weight, name, race, job, gender, character_bio , created_at, updated_at, users_id, strength, constatution, dexterity, wisdom, intelegence, charisma, img_data) VALUES ( %(character_dis)s, %(height)s, %(weight)s, %(name)s , %(race)s, %(job)s,%(gender)s , %(character_bio)s , NOW() , NOW(), %(users_id)s, %(strength)s, %(constatution)s, %(dexterity)s, %(wisdom)s, %(intelegence)s, %(charisma)s, %(img_data)s);"
+        query = "INSERT INTO charinfo.character (character_dis, height, weight, name, race, job, gender, character_bio , created_at, updated_at, users_id, strength, constatution, dexterity, wisdom, intelegence, charisma, img_data) VALUES ( %(character_dis)s, %(height)s, %(weight)s, %(name)s , %(race)s, %(job)s,%(gender)s , %(character_bio)s , NOW() , NOW(), %(users_id)s, %(strength)s, %(constatution)s, %(dexterity)s, %(wisdom)s, %(intelegence)s, %(charisma)s, %(img_data)s);"
+        new_id = connectToMySQL('charinfo').query_db( query, data )
+        return new_id
 
     @classmethod
     def edit(cls, data):
-        query = "UPDATE charinfo.character SET character_dis = %(character_dis)s, name = %(name)s, race = %(race)s, gender = %(gender)s, job = %(job)s, character_bio = %(character_bio)s, strength = %(strength)s, constatution = %(constatution)s, dexterity = %(dexterity)s, wisdom = %(wisdom)s, intelegence = %(intelegence)s, charisma = %(charisma)s, img_data = %(img_data)s  WHERE id = %(id)s;"
+        query = "UPDATE character SET character_dis = %(character_dis)s,height = %(height)s, weight = %(weight)s, name = %(name)s, race = %(race)s, gender = %(gender)s, job = %(job)s, character_bio = %(character_bio)s, strength = %(strength)s, constatution = %(constatution)s, dexterity = %(dexterity)s, wisdom = %(wisdom)s, intelegence = %(intelegence)s, charisma = %(charisma)s, img_data = %(img_data)s,users_id = %(users_id)s WHERE id = %(id)s;"
         character_id = connectToMySQL("charinfo").query_db(query,data)
         return character_id
 
@@ -73,13 +51,13 @@ class Sheet:
 
     @classmethod
     def get_all(cls):
-        query = "SELECT * FROM charinfo.character;"
+        query = "SELECT * FROM charinfo.character JOIN users ON character.users_id WHERE users_id = users.id;"
         results = connectToMySQL("charinfo").query_db(query)
 
-        character = []
+        # character = []
         for result in results:
             one_instance = cls(result)
-            character.append(one_instance)
-        return character
+            # character.append(one_instance)
+        return results
 
 

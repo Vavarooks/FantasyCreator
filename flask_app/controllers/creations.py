@@ -1,5 +1,3 @@
-import re
-import this
 from flask import Flask, render_template, redirect, request, session, flash
 from flask_app.models.creation import Sheet
 from flask_app.models.user import Users
@@ -64,6 +62,13 @@ def edit(id):
     one_character = Sheet.get_one(data)
     return render_template('edit.html',one_character=one_character,this_user=this_user)
 
+@app.route('/delete/<int:id>')
+def delete(id):
+    data = {
+        "id":id
+    }
+    Sheet.delete(data)
+    return redirect('/home')
 
 @app.route('/creation/post',methods=["POST"])
 def created():
@@ -71,6 +76,7 @@ def created():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'img_data' not in request.files:
+            flash("No Image! Please Put one!")
             print('No file part')
             return redirect("/")
         file = request.files['img_data']
@@ -108,9 +114,12 @@ def created():
         "charisma": request.form["charisma"],
         "users_id": session["logged_id"]
     }
-    session["logged_id"] == Sheet.save(data)
+    new_id = Sheet.save(data)
+    print(f'{new_id}')
+    # session["logged_id"] == Sheet.save(data)
     print("Made Character")
-    return redirect('/created/'+ str(session["logged_id"]))
+    return redirect("/home")
+    # return redirect('/created/'+ str(session["logged_id"]))
 
 @app.route('/result/<int:id>')
 def result(id):
@@ -129,8 +138,8 @@ def result(id):
     print('Submitted Form')
     return render_template('owned.html', one_character=one_character, this_user = this_user)
 
-@app.route('/edited/post',methods=["POST"])
-def edited():
+@app.route('/edited/<int:id>/post',methods=["POST"])
+def edited(id):
 
     if request.method == 'POST':
         # check if the post request has the file part
@@ -155,6 +164,7 @@ def edited():
             image_string = image_string.decode("utf-8")
 
     data ={
+        "id": id,
         "img_data": image_string,
         "character_dis": request.form["character_dis"],
         "height": request.form["height"],
@@ -170,11 +180,11 @@ def edited():
         "constatution": request.form["constatution"],
         "intelegence": request.form["intelegence"],
         "charisma": request.form["charisma"],
-        "user_id": session["logged_id"]
+        "users_id": session["logged_id"]
     }
-    id == Sheet.save(data)
+    Sheet.edit(data)
     print("Made Character")
-    return redirect('/edited/'+ str(id))
+    return redirect('/home')
 
 @app.route("/success")
 def success():
@@ -188,7 +198,7 @@ def success():
 @app.route("/register", methods=["post"])
 def register_user():
     print("trying to register here")
-    print(request.form)
+    
 
     data = {
         "first_name": request.form["first_name"],

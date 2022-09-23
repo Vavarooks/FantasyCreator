@@ -30,7 +30,8 @@
     <div class="card-img-overlay forms">
         <div class="row">
             <div class="col d-block mx-auto w-50 my-2">
-                <form class="container card" method="post" action="/edited/post" enctype="multipart/form-data">
+                <form class="container card" method="post" action="/edited/{{one_character.id}}/post" enctype="multipart/form-data">
+                    <span hidden>{{one_character.users_id}}</span>
                     <div class="col-md-12">
                         <label for="img_data" class="form-label">Character Image</label>
                         <input class="form-control" type="file" accept=".png,.gif,.jpg,.webp" name="img_data">
@@ -98,8 +99,8 @@
                             <input class="form-control" type="number" name="wisdom"></input>
                         </div>
                         <div class="col-md-2">
-                            <label for="constitution" class="form-label">Constitution</label>
-                            <input class="form-control" type="number" name="constitution"></input>
+                            <label for="constatution" class="form-label">Constitution</label>
+                            <input class="form-control" type="number" name="constatution"></input>
                         </div>
                         <div class="col-md-2">
                             <label for="intelegence" class="form-label">Intelegence</label>

@@ -5,14 +5,16 @@ SELECT * FROM stats
 INSERT INTO charinfo.stats (strength,constitution,wisdom,dexterity,intelegence,charisma, created_at, updated_at)
 VALUE(10,11,12,13,14,15, NOW(), NOW())
 
-"SELECT * FROM character JOIN users ON character.user_id = users.id WHERE character.id = %(id)s;"
+"SELECT * FROM charinfo.character JOIN users ON character.users_id = users.id WHERE character.id = 2;"
 
 
 --- CHARATER FORMAT ---
 
-SELECT * FROM charater
+SELECT * FROM character
 
-INSERT INTO charinfo.charater (charater_dis, name, race, job, gender, charater_bio, height, weight,created_at,updated_at)
+INSERT INTO charinfo.charater (charater_dis, name, race, job, gender, charater_bio, height, weight,strength,constatution,wisdom,dexterity,intelegence,charisma ,created_at,updated_at)
+
+
 VALUE("Eros Sev","Blond Hair, Grey Eyes, and Bronze Skin tone","Sun Elf","Sorcerer","Male","Sage",6,126, NOW(), NOW())
 VALUE("William Stongrave","White Hair, Red Eyes, and Pale Skin tone","Moon Elf","Fighter","Male","Soilder",6,130, NOW(), NOW())
 VALUE("Argon","Long Horns, Green Scales, Blue Eyes", "Dragonborn", "Warlock", "Female", "Scholar",5,123,NOW(),NOW())

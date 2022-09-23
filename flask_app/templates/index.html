@@ -141,11 +141,12 @@
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
                                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
+                                        <div id="mercbtn"></div>
                                         <p>Image</p>
                                         <h4>Name</h4>
                                         <h4>Price</h4>
                                         <h4>Stats</h4>
-                                        <a type="button" class="btn btn-light mb-3">Hire mercenary</a>
+                                        <button type="button" class="btn btn-outline-secondary" id="mercbtnBtn">Hire Mercenary</button>
                                     </div>
                                 </div>
                             </div>
@@ -206,6 +207,9 @@
                             <td>{{characters.name}} |</td>
                             <td>{{characters.updated_at}} |</td>
                             <td>
+                                {% if characters.users_id == session["logged_id"] %}
+                                <a class="btn btn-secondary" type="button" href="/delete/{{characters.id}}">Delete</a>
+                                {% endif %}
                                 <a type="button" class="btn btn-light" href="/result/{{characters.id}}">View</a>
                             </td>
                             

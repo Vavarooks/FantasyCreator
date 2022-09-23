@@ -9,6 +9,7 @@ function logIn() {
     logIn.remove();
 }
 
+
 const alertJourney = document.getElementById('journey')
 
 const alertj = (message, type) => {
@@ -69,5 +70,26 @@ const huntTrigger = document.getElementById('huntBtn')
 if (huntTrigger) {
     huntTrigger.addEventListener('click', () => {
         alerth('Hoorha! Your hunt begins!', 'success')
+    })
+}
+
+const alertmerc = document.getElementById('merc')
+
+const alertm = (message, type) => {
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   <div>${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+    ].join('')
+
+    alertmerc.append(wrapper)
+}
+
+const mercTrigger = document.getElementById('mercBtn')
+if (mercTrigger) {
+    mercTrigger.addEventListener('click', () => {
+        alertj('Hoorha! Your hired a merc!', 'success')
     })
 }
