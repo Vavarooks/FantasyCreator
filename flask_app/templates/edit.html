@@ -25,90 +25,145 @@
         </div>
     </nav>
 
-
     <img src="{{url_for('static',filename='/assets/kingdom.jpg')}}" class="d-block w-100" alt="city">
     <div class="card-img-overlay forms">
+        <!-- {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning" role="alert">
+                        <p>{{message}}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %} -->
         <div class="row">
             <div class="col d-block mx-auto w-50 my-2">
                 <form class="container card" method="post" action="/edited/{{one_character.id}}/post" enctype="multipart/form-data">
                     <span hidden>{{one_character.users_id}}</span>
                     <div class="col-md-12">
                         <label for="img_data" class="form-label">Character Image</label>
-                        <input class="form-control" type="file" accept=".png,.gif,.jpg,.webp" name="img_data">
+                        <input class="form-control" type="file" accept=".png,.gif,.jpg,.webp" name="img_data" required>
+                        <div class="invalid-feedback">
+                            Please provide a image.
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-2">
                             <label for="height" class="form-label">Height</label>
-                            <input class="form-control" type="number" name="height"></input>
+                            <input class="form-control" type="number" name="height" required>
+                            <div class="invalid-feedback">
+                                Please provide a height.
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label for="weight" class="form-label">Weight</label>
-                            <input class="form-control" type="number" name="weight"></input>
+                            <input class="form-control" type="number" name="weight"required>
+                            <div class="invalid-feedback">
+                                Please provide a weight.
+                            </div>
                         </div>
                     </div>
                     <div class="col-12 row-5">
                         <label for="character_dis" class="form-label">Character Discription:</label>
-                        <input class="form-control" type="text" name="character_dis" id="character_dis" value="{{one_character.character_dis}}"></input>
+                        <input class="form-control" type="text" name="character_dis" id="character_dis" value="{{one_character.character_dis}}" required>
+                        <div class="invalid-feedback">
+                            Please provide a discription.
+                        </div>
                     </div>
                     <div class="col-md-12">
-                        <label for="name" class="form-label">Character Name:</label>
-                        <input class="form-control" type="text" placeholder="Name" name="name" value="{{one_character.name}}">
-                        <label for="gender" class="form-label">Gender:</label>
-                        <input name="gender" class="form-control" list="genderChoice" id="genderChoice gender"
-                        value="{{one_character.gender}}">
-                        <datalist id="genderChoice">
-                            <option value="Male">
-                            <option value="Female">
-                        </datalist>
-                        <label for="race" class="form-label">Race:</label>
-                        <input name="race" class="form-control" list="raceChoice" id="raceChoice race"
-                        value="{{one_character.race}}">
-                        <datalist id="raceChoice">
-                            <option value="Elf">
-                            <option value="Dwarf">
-                            <option value="Human">
-                            <option value="Dragonborn">
-                            <option value="Tiefling">
-                        </datalist>
-                        <label for="job" class="form-label">Class:</label>
-                        <input name="job" class="form-control" list="classChoice" id="classChoice job"
-                        value="{{one_character.job}}">
-                        <datalist id="classChoice">
-                            <option value="Fighter">
-                            <option value="Rogue">
-                            <option value="Wizard">
-                            <option value="Monk">
-                            <option value="Warlock">
-                        </datalist>
+                        <div>
+                            <label for="name" class="form-label">Character Name:</label>
+                            <input class="form-control" type="text" placeholder="Name" name="name" value="{{one_character.name}}" required>
+                            <div class="invalid-feedback">
+                                Please provide a name.
+                            </div>
+                        </div>
+                        <div>
+                            <label for="gender" class="form-label">Gender:</label>
+                            <input name="gender" class="form-control" list="genderChoice" id="genderChoice gender"
+                            value="{{one_character.gender}}" required>
+                            <datalist id="genderChoice">
+                                <option value="Male">
+                                <option value="Female">
+                            </datalist>
+                            <div class="invalid-feedback">
+                                Please provide a gender.
+                            </div>
+                        </div>
+                        <div>
+                            <label for="race" class="form-label">Race:</label>
+                            <input name="race" class="form-control" list="raceChoice" id="raceChoice race"
+                            value="{{one_character.race}}" required>
+                            <datalist id="raceChoice">
+                                <option value="Elf">
+                                <option value="Dwarf">
+                                <option value="Human">
+                                <option value="Dragonborn">
+                                <option value="Tiefling">
+                            </datalist>
+                            <div class="invalid-feedback">
+                                Please provide a race.
+                            </div>
+                        </div>
+                        <div>
+                            <label for="job" class="form-label">Class:</label>
+                            <input name="job" class="form-control" list="classChoice" id="classChoice job"
+                            value="{{one_character.job}}" required>
+                            <datalist id="classChoice">
+                                <option value="Fighter">
+                                <option value="Rogue">
+                                <option value="Wizard">
+                                <option value="Monk">
+                                <option value="Warlock">
+                            </datalist>
+                            <div class="invalid-feedback">
+                                Please provide a class.
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <label for="character_bio" class="form-label">Character Biography</label>
-                        <input class="form-control" type="text" name="character_bio" id="character-bio" value="{{one_character.character_dis}}"></input>
+                        <input class="form-control" type="text" name="character_bio" id="character-bio" value="{{one_character.character_dis}}" required>
+                        <div class="invalid-feedback">
+                            Please provide a Biography.
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-2">
                             <label for="strength" class="form-label">Strength</label>
-                            <input class="form-control" type="number" name="strength"></input>
+                            <input class="form-control" type="number" name="strength" required>
+                            <div class="invalid-feedback">
+                                Please provide a strength.
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label for="dexterity" class="form-label">Dexterity</label>
-                            <input class="form-control" type="number" name="dexterity"></input>
+                            <input class="form-control" type="number" name="dexterity" required>
+                            <div class="invalid-feedback">
+                                Please provide a dexterity.
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label for="wisdom" class="form-label">Wisdom</label>
-                            <input class="form-control" type="number" name="wisdom"></input>
+                            <input class="form-control" type="number" name="wisdom required">
+                            <div class="invalid-feedback">
+                                Please provide a wisdom.
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label for="constatution" class="form-label">Constitution</label>
-                            <input class="form-control" type="number" name="constatution"></input>
+                            <input class="form-control" type="number" name="constatution" required>
+                            <div class="invalid-feedback">
+                                Please provide a strength.
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label for="intelegence" class="form-label">Intelegence</label>
-                            <input class="form-control" type="number" name="intelegence"></input>
+                            <input class="form-control" type="number" name="intelegence">
                         </div>
                         <div class="col-md-2">
                             <label for="charisma" class="form-label">Charisma</label>
-                            <input class="form-control" type="number" name="charisma"></input>
+                            <input class="form-control" type="number" name="charisma">
                         </div>
                     </div>
                     <div class="col-md-2">

@@ -1,4 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask import Flask, flash
 
 class Sheet:
     def __init__(self, data):
@@ -22,6 +23,58 @@ class Sheet:
         self.charisma = data["charisma"]
         self.img_data = data["img_data"]
     
+    @staticmethod
+    def validate(data):
+        is_valid = True
+
+        if not (data['name']):
+            flash("Name cannot be blank!", 'name')
+            is_valid = False
+        if not (data['race']):
+            flash("Race cannot be blank!", 'race')
+            is_valid = False
+        if not (data['img_data']):
+            flash("Image cannot be blank!", 'img_data')
+            is_valid = False
+        if not (data['job']):
+            flash("Class cannot be blank!", 'job')
+            is_valid = False
+        if not (data['character_dis']):
+            flash("Character discription cannot be blank!", 'character_dis')
+            is_valid = False
+        if not (data['character_bio']):
+            flash("Character biography cannot be blank!", 'character_bio')
+            is_valid = False
+        if not (data['height']):
+            flash("Height cannot be blank!", 'height')
+            is_valid = False
+        if not (data['weight']):
+            flash("Weight cannot be blank!", 'weight')
+            is_valid = False
+        if not (data['gender']):
+            flash("Gender cannot be blank!", 'gender')
+            is_valid = False
+        if not (data['strength']):
+            flash("Strength cannot be blank!", 'strength')
+            is_valid = False
+        if not (data['dexterity']):
+            flash("Dexterity cannot be blank!", 'dexterity')
+            is_valid = False
+        if not (data['wisdom']):
+            flash("Wisdom cannot be blank!", 'wisdom')
+            is_valid = False
+        if not (data['constatution']):
+            flash("Constatution cannot be blank!", 'constatution')
+            is_valid = False
+        if not (data['intelegence']):
+            flash("Intelegence cannot be blank!", 'intelegence')
+            is_valid = False
+        if not (data['charisma']):
+            flash("Charisma cannot be blank!", 'charisma')
+            is_valid = False
+        
+        return is_valid
+
     @classmethod
     def save(cls, data ):
         # query = "INSERT INTO charinfo.character (character_dis, height, weight, name, race, job, gender, character_bio , created_at, updated_at, users_id, strength, constatution, dexterity, wisdom, intelegence, charisma, img_data) VALUES ( %(character_dis)s, %(height)s, %(weight)s, %(name)s , %(race)s, %(job)s,%(gender)s , %(character_bio)s , NOW() , NOW(), %(users_id)s, %(strength)s, %(constatution)s, %(dexterity)s, %(wisdom)s, %(intelegence)s, %(charisma)s, %(img_data)s);"

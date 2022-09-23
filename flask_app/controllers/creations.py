@@ -114,12 +114,15 @@ def created():
         "charisma": request.form["charisma"],
         "users_id": session["logged_id"]
     }
+    if not Sheet.validate(data):
+        print("not valid")
+        return redirect("/home")
     new_id = Sheet.save(data)
     print(f'{new_id}')
     # session["logged_id"] == Sheet.save(data)
     print("Made Character")
     return redirect("/home")
-    # return redirect('/created/'+ str(session["logged_id"]))
+    # return redirect('/created/'+ str(image.string))
 
 @app.route('/result/<int:id>')
 def result(id):
@@ -182,6 +185,9 @@ def edited(id):
         "charisma": request.form["charisma"],
         "users_id": session["logged_id"]
     }
+    if not Sheet.validate(data):
+        print("not valid")
+        return redirect("/home")
     Sheet.edit(data)
     print("Made Character")
     return redirect('/home')

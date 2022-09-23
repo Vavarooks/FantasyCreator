@@ -11,6 +11,11 @@
     top: 120px;
 }
 
+
+.home{
+    background-image: url("/flask_app/static/assets/kingdom.jpg");
+}
+
 *{
     margin: 0 auto;
     padding: 0;

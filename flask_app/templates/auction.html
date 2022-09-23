@@ -27,7 +27,7 @@
         <img src="{{url_for('static',filename='/assets/trading.jpg')}}" class="card-img" alt="traders">
         <div class="card-img-overlay">
             <h5 class="card-title">
-                Shop
+                Shop Coming Soon Version 2!
             </h5>
             <p class="card-text">
             <div class="row row-cols-2 row-cols-md-4 g-4">
@@ -52,7 +52,8 @@
                                         <div class="accordion-body"> Adventuring Backpack <p> Price: $3,500</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 52
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="liveAlertBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -69,7 +70,8 @@
                                         <div class="accordion-body">Watering Skin <p> Price: $150</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 15
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +88,8 @@
                                         <div class="accordion-body">Tent <p> Price: $420</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 25
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +106,8 @@
                                         <div class="accordion-body">Bed Roll <p> Price: $250</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 13
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -132,7 +136,8 @@
                                         <div class="accordion-body">Large Canvas <p> Price: $3,500</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 52
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -149,7 +154,8 @@
                                         <div class="accordion-body">Basic Paint Kit <p> Price: $150</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 15
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +172,8 @@
                                         <div class="accordion-body">Oil Paint Kit <p> Price: $420</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 25
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +190,8 @@
                                         <div class="accordion-body">Paint Brush Kit <p> Price: $250</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 13
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -212,7 +220,8 @@
                                         <div class="accordion-body"> Large Iron Cage <p> Price: $3,500</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 52
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -229,7 +238,8 @@
                                         <div class="accordion-body">Bear Trap <p> Price: $150</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 15
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -246,7 +256,8 @@
                                         <div class="accordion-body">40ft Rope <p> Price: $420</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 25
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -263,7 +274,8 @@
                                         <div class="accordion-body"> Tracking Kit <p> Price: $250</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 13
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -293,7 +305,8 @@
                                         <div class="accordion-body">Golden Watch <p> Price: $3,500</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 52
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -310,7 +323,8 @@
                                         <div class="accordion-body">Ball Bearings <p> Price: $150</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 15
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -327,7 +341,8 @@
                                         <div class="accordion-body">Bell <p> Price: $420</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 25
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -344,7 +359,8 @@
                                         <div class="accordion-body">Iron Arrows <p> Price: $250</p>
                                             <p class="card-text"><small class="text-muted">Left in Stock: </small> 13
                                             </p>
-                                            <button type="button" class="btn btn-secondary">Buy</button>
+                                            <div id="buyAlert"></div>
+                                            <button type="button" class="btn btn-primary" id="buyBtn">Buy</button>
                                         </div>
                                     </div>
                                 </div>

@@ -24,97 +24,141 @@
             </a>
         </div>
     </nav>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-warning" role="alert">
-                    <p>{{message}}</p>
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    <img src="{{url_for('static',filename='/assets/kingdom.jpg')}}" class="d-block w-100" alt="city">
-    <div class="card-img-overlay forms">
+    <img src="{{url_for('static',filename='/assets/kingdom.jpg')}}" class="d-block w-100 mh-100" alt="city">
+    <div class="card-img-overlay w-100 mh-100 forms">
         <div class="row">
             <div class="col d-block mx-auto w-50 my-2">
                 <form class="container card" method="post" action="/creation/post" enctype="multipart/form-data">
                     <div class="col-md-12">
                         <label for="img_data" class="form-label">Character Image</label>
-                        <input class="form-control" type="file" accept=".png,.gif,.jpg,.webp" name="img_data">
+                        <input class="form-control" type="file" accept=".png,.gif,.jpg,.webp" name="img_data" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid image.
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-2">
                             <label for="height" class="form-label">Height</label>
-                            <input class="form-control" type="number" name="height"></input>
+                            <input class="form-control" type="number" name="height" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid height.
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label for="weight" class="form-label">Weight</label>
-                            <input class="form-control" type="number" name="weight"></input>
+                            <input class="form-control" type="number" name="weight" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid weight.
+                            </div>
                         </div>
                     </div>
                     <div class="col-12 row-5">
                         <label for="character_dis" class="form-label">Character Discription:</label>
-                        <input class="form-control" type="text" name="character_dis" id="character_dis"></input>
+                        <input class="form-control" type="text" name="character_dis" id="character_dis" required>
+                        <div class="invalid-feedback">
+                            Please provide a Discription.
+                        </div>
                     </div>
                     <div class="col-md-12">
-                        <label for="name" class="form-label">Character Name:</label>
-                        <input class="form-control" type="text" placeholder="Name" name="name">
-                        <label for="gender" class="form-label">Gender:</label>
-                        <input name="gender" class="form-control" list="genderChoice" id="genderChoice gender"
-                            placeholder="Type to add gender...">
-                        <datalist id="genderChoice">
-                            <option value="Male">
-                            <option value="Female">
-                        </datalist>
-                        <label for="race" class="form-label">Race:</label>
-                        <input name="race" class="form-control" list="raceChoice" id="raceChoice race"
-                            placeholder="Type to add Race...">
-                        <datalist id="raceChoice">
-                            <option value="Elf">
-                            <option value="Dwarf">
-                            <option value="Human">
-                            <option value="Dragonborn">
-                            <option value="Tiefling">
-                        </datalist>
-                        <label for="job" class="form-label">Class:</label>
-                        <input name="job" class="form-control" list="classChoice" id="classChoice job"
-                            placeholder="Type to add Class...">
-                        <datalist id="classChoice">
-                            <option value="Fighter">
-                            <option value="Rogue">
-                            <option value="Wizard">
-                            <option value="Monk">
-                            <option value="Warlock">
-                        </datalist>
+                        <div>
+                            <label for="name" class="form-label">Character Name:</label>
+                            <input class="form-control" type="text" placeholder="Name" name="name" required>
+                            <div class="invalid-feedback">
+                                Please provide a name.
+                            </div>
+                        </div>
+                        <div>
+                            <label for="gender" class="form-label">Gender:</label>
+                            <input name="gender" class="form-control" list="genderChoice" id="genderChoice gender"
+                                placeholder="Type to add gender..." required>
+                            <datalist id="genderChoice">
+                                <option value="Male">
+                                <option value="Female">
+                            </datalist>
+                            <div class="invalid-feedback">
+                                Please provide a gender.
+                            </div>
+                        </div>
+                        <div>
+                            <label for="race" class="form-label">Race:</label>
+                            <input name="race" class="form-control" list="raceChoice" id="raceChoice race"
+                                placeholder="Type to add Race..." required>
+                            <datalist id="raceChoice">
+                                <option value="Elf">
+                                <option value="Dwarf">
+                                <option value="Human">
+                                <option value="Dragonborn">
+                                <option value="Tiefling">
+                            </datalist>
+                            <div class="invalid-feedback">
+                                Please provide a race.
+                            </div>
+                        </div>
+                        <div>
+                            <label for="job" class="form-label">Class:</label>
+                            <input name="job" class="form-control" list="classChoice" id="classChoice job"
+                                placeholder="Type to add Class..." required>
+                            <datalist id="classChoice">
+                                <option value="Fighter">
+                                <option value="Rogue">
+                                <option value="Wizard">
+                                <option value="Monk">
+                                <option value="Warlock">
+                            </datalist>
+                            <div class="invalid-feedback">
+                                Please provide a Class.
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <label for="character_bio" class="form-label">Character Biography</label>
-                        <input class="form-control" type="text" name="character_bio" id="character-bio"></input>
+                        <input class="form-control" type="text" name="character_bio" id="character-bio" required>
+                        <div class="invalid-feedback">
+                            Please provide a Biography.
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-2">
                             <label for="strength" class="form-label">Strength</label>
-                            <input class="form-control" type="number" name="strength"></input>
+                            <input class="form-control" type="number" name="strength" required>
+                            <div class="invalid-feedback">
+                                Please provide a strength.
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label for="dexterity" class="form-label">Dexterity</label>
-                            <input class="form-control" type="number" name="dexterity"></input>
+                            <input class="form-control" type="number" name="dexterity" required>
+                            <div class="invalid-feedback">
+                                Please provide a dexterity.
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label for="wisdom" class="form-label">Wisdom</label>
-                            <input class="form-control" type="number" name="wisdom"></input>
+                            <input class="form-control" type="number" name="wisdom" required>
+                            <div class="invalid-feedback">
+                                Please provide a wisdom.
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label for="constatution" class="form-label">Constitution</label>
-                            <input class="form-control" type="number" name="constatution"></input>
+                            <input class="form-control" type="number" name="constatution" required>
+                            <div class="invalid-feedback">
+                                Please provide a constitution.
+                            </div>
                         </div>
                         <div class="col-md-2">
-                            <label for="intelegence" class="form-label">Intelegence</label>
-                            <input class="form-control" type="number" name="intelegence"></input>
+                            <label for="intelegence" class="form-label">Intelligence</label>
+                            <input class="form-control" type="number" name="intelegence" required>
+                            <div class="invalid-feedback">
+                                Please provide a intelligence.
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label for="charisma" class="form-label">Charisma</label>
-                            <input class="form-control" type="number" name="charisma"></input>
+                            <input class="form-control" type="number" name="charisma" required>
+                            <div class="invalid-feedback">
+                                Please provide a charisma.
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -141,12 +185,9 @@
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
                                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                        <div id="mercbtn"></div>
-                                        <p>Image</p>
-                                        <h4>Name</h4>
-                                        <h4>Price</h4>
-                                        <h4>Stats</h4>
-                                        <button type="button" class="btn btn-outline-secondary" id="mercbtnBtn">Hire Mercenary</button>
+                                        <div id="merc"></div>
+                                        <h1>Listings coming soon to version 2!</h1>
+                                        <button type="button" class="btn btn-outline-secondary" id="mercBtn">Hire Mercenary</button>
                                     </div>
                                 </div>
                             </div>
@@ -161,10 +202,7 @@
                                 <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                     aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                        <p>Image</p>
-                                        <h4>Name</h4>
-                                        <h4>Price</h4>
-                                        <h4>Stats</h4>
+                                        <h1>Listings coming soon to version 2!</h1>
                                         <a type="button" class="btn btn-light mb-3">Hire mercenary</a>
                                     </div>
                                 </div>
@@ -180,10 +218,7 @@
                                 <div id="flush-collapseThree" class="accordion-collapse collapse"
                                     aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                        <p>Image</p>
-                                        <h4>Name</h4>
-                                        <h4>Price</h4>
-                                        <h4>Stats</h4>
+                                        <h1>Listings coming soon to version 2!</h1>
                                         <a type="button" class="btn btn-light mb-3" href="#">Hire Mercinary</a>
                                     </div>
                                 </div>
@@ -218,7 +253,25 @@
                     </tbody>
                 </table>
             </div>
-
+            <div class="row">
+                <div class="col">
+        
+                    <!-- {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div class="container text-center">
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                            {% for message in messages %}
+                                    <div class="alert alert-warning alert-dismissible fade show col-sm-2" role="alert">
+                                        <strong>Halt!</strong> <p>{{message}}</p>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endwith %} -->
+                </div>
+            </div>
         </div>
     </div>
 
