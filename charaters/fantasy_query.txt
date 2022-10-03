@@ -5,17 +5,75 @@ SELECT * FROM stats
 INSERT INTO charinfo.stats (strength,constitution,wisdom,dexterity,intelegence,charisma, created_at, updated_at)
 VALUE(10,11,12,13,14,15, NOW(), NOW())
 
+"SELECT * FROM charinfo.character JOIN users ON character.users_id = users.id WHERE character.id = 2;"
+
 
 --- CHARATER FORMAT ---
 
-SELECT * FROM charater
+SELECT * FROM character
 
-INSERT INTO charinfo.charater (charater_dis, name, race, job, gender, charater_bio, height, weight,created_at,updated_at)
-VALUE("Eros Sev","Blond Hair, Grey Eyes, and Bronze Skin tone","Sun Elf","Sorcerer","Male","Sage",6,126, NOW(), NOW())
-VALUE("William Stongrave","White Hair, Red Eyes, and Pale Skin tone","Moon Elf","Fighter","Male","Soilder",6,130, NOW(), NOW())
+INSERT INTO charinfo.charater (charater_dis, name, race, job, gender, charater_bio, height, weight,strength,constatution,wisdom,dexterity,intelegence,charisma ,created_at,updated_at)
+
+
+VALUE("Eros Sev","Blond Hair, Grey Eyes, and Bronze Skin tone","Sun Elf","Sorcerer","Male","Sage",6,126, NOW(), NOW()),
+("William Stongrave","White Hair, Red Eyes, and Pale Skin tone","Moon Elf","Fighter","Male","Soilder",6,130, NOW(), NOW()),
+("Argon","Long Horns, Green Scales, Blue Eyes", "Dragonborn", "Warlock", "Female", "Scholar",5,123,NOW(),NOW()),
+("Terror Vale", "Ginger Hair, Purple Eyes, and Pale Skin", "Alien", "Wizard", "Male", "Criminal",6,125, NOW(),NOW()),
+("Nelon Husk", "Blond Hair, Blue Eyes, and Pale Skin", "Cyborg", "Gunslinger", "Male", "Bounty Hunter", 6, 130, NOW(),NOW()),
+("Jacque Conner", "Red Hair, Green Eyes, Slight Tan Skin", "ESPER", "Cleric", Male, "Exsorsist", 5,125,NOW(),NOW()),
+("Kochiku Tsuyoi", "Blue Hair, Dark Pink Eyes, and Pale Skin", "Human", "Artificer", "Male", "Charlitan", 5,123, NOW(),NOW()),
+("Kuro Uzumaki", "Dark Purple Hair, Light Pink Eyes and Burned Skin", "Human", "Assasin", "Female", "Orphan", 4,110,NOW(),NOW()),
+("Ren Hakuri", "Dark Green Hair, Light Purple Eyes and Pale Skin", "Human", "Ninja", "Male", "Spy", 6,124,NOW(),NOW()),
+("Dojin Bao", "Bald, Blind and Pale Skin", "Human", "Monk", "Male", "Hermit", 5,123,NOW(),NOW()),
+("Paou Fau", "Grey Hair, Dark Red Eyes and Pale Skin", "Human", "Samurai", "Male", "Wanderer", 5,120,NOW(),NOW()),
+("Gilio Julius", "Brown Hair, Brown Eyes and Tan Skin", "Demi-God", "Gladiator", "Male", "Captian", 6,134,NOW(),NOW()),
+("Nanu Oris", "Black Hair Shaven, Golden Eyes, Dark Tan Skin", "Demi-God", "Bard", "Male", "Merchant",5,124,NOW(),NOW()),
+("Qiang Xi", "Dark Brown Hair, Light Brown Eyes and Tan Skin", "Human", "Martial Artist", "Female", "Folk Hero", 5,132,NOW(),NOW()),
+("Holly Yovian", "Brown Hair, Dark Brown eyes, and Pale Skin", "Human", "Hunter", "Female", "Noble Woman", 6,124,NOW(),NOW()),
+("Zoey Martins", "Dark Red Hair, Dark Green Eyes, and Light Tan Skin" "Human", "Tinker", "Female", "Blacksmith", 5, 122, NOW(),NOW()),
+("Li Iwao", "Light Purple Hair, Black Yellow Eyes, and Pale Skin", "Non-Human", "Warrior", "Male", "Hit-Man", 6,132, NOW(),NOW()) 
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+81305
 
 
 --- VIEW CHARATER ---
 
 select * from dojos_and_ninjas_schema.ninja;
 where dojo_dojo_id = 4
+
+
+eros = Sheet("Eros Sev","Blond Hair, Grey Eyes, and Bronze Skin tone","Sun Elf","Sorcerer","Male","Sage",6,126)
+eros_stats = Stats(10,8,14,11,15,6)
+william_stats = Stats(15,14,10,12,8,10)
+base_stats = Stats(10,11,12,13,14,15)
+eros = Sheet("Eros Sev","Sun Elf","Sorcerer","Sage",6,126)
+eros = Stats(10,8,14,11,15,6)
+eros = Attacks(250,120)
+william = Sheet("William Stongrave","Dark Elf","Knight","Guardsman",6,135)
+william = Attacks(145,230)
+
+-- Poem? --
+
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
