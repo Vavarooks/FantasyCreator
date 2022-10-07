@@ -30,9 +30,10 @@
                 <div class="card d-block mx-auto w-50 my-3 border p-3">
                     <div class="row">
                         <div class="col-8">
-                            <h4>Image Goes Here!</h4>
+                            <!-- <h4>Image Goes Here!</h4> -->
                             <!-- <img src="https://wallpapercave.com/wp/dTemoZW.jpg" alt="town"> -->
-                            <img src="data:image/png;base64,{{one_character.image_data}}" class="img-size">
+                            <p hidden>{{one_character.id}}</p>
+                            <img src="data:image/png;base64,{{one_character.image_string}}" class="img-size">
                             <div class="col-md-12">
                                 <h5>Discription:</h5>
                                 <p>{{one_character.character_dis}}</p>
