@@ -8,7 +8,7 @@ VALUE(10,11,12,13,14,15, NOW(), NOW())
 "SELECT * FROM charinfo.character JOIN users ON character.users_id = users.id WHERE character.id = 2;"
 
 
---- CHARATER FORMAT ---
+--- CHARATER FORMAT FOR SQL ---
 
 SELECT * FROM character
 
@@ -33,11 +33,6 @@ VALUE("Eros Sev","Blond Hair, Grey Eyes, and Bronze Skin tone","Sun Elf","Sorcer
 ("Zoey Martins", "Dark Red Hair, Dark Green Eyes, and Light Tan Skin" "Human", "Tinker", "Female", "Blacksmith", 5, 122, NOW(),NOW()),
 ("Li Iwao", "Light Purple Hair, Black Yellow Eyes, and Pale Skin", "Non-Human", "Warrior", "Male", "Hit-Man", 6,132, NOW(),NOW()) 
 
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
-
-81305
-
-
 --- VIEW CHARATER ---
 
 select * from dojos_and_ninjas_schema.ninja;
@@ -53,6 +48,77 @@ eros = Stats(10,8,14,11,15,6)
 eros = Attacks(250,120)
 william = Sheet("William Stongrave","Dark Elf","Knight","Guardsman",6,135)
 william = Attacks(145,230)
+
+-- Class Java Names --
+
+class Stats{
+	constructor(Lv,HP,AC,MP){
+		this.LV = Lv;
+		this.HP = HP;
+		this.AC = AC;
+		this.MP = MP;
+		this Strength = 0;
+		this.Intelligence = 0;
+		this.Constitution = 0;
+		this.Charisma = 0;
+		this.Wisdom = 0;
+	}
+	meleeAttack(){
+	
+	}
+	rangeAttack(){
+	
+	}
+	magicAttack(){
+	
+	}
+	defend(){
+	
+	}
+	heal(){
+	
+	}
+}
+
+class Character extends Stats{
+	constructor(name,gender,race,age,class){
+		this.name = name;
+		this.gender = gender;
+		this.race = race;
+		this.age = age;
+		this.class = class;
+	}
+}
+
+("Eros Sev","Sun Elf","Sorcerer","Male")
+("William Stongrave","Moon Elf","Knight","Male")
+("Argon","Dragonborn","Warlock","Female")
+("Terror Vale","Alien","Wizard","Male")
+("Nelon Husk","Cyborg","Gunslinger","Male")
+("Jacque Conner","ESPER", "Cleric", Male)
+("Kochiku Tsuyoi", "Human", "Artificer", "Male")
+("Kuro Uzumaki","Human", "Assasin", "Female")
+("Ren Hakuri","Human", "Ninja", "Male")
+("Dojin Bao","Human", "Monk", "Male")
+("Paou Fau", "Human", "Samurai", "Male")
+("Gilio Julius","Demi-God", "Gladiator", "Male")
+("Nanu Oris","Demi-God", "Bard", "Male")
+("Qiang Xi","Human", "Martial Artist", "Female")
+("Holly Yovian", "Human", "Hunter", "Female")
+("Zoey Martins","Human", "Tinker", "Female")
+("Li Iwao","Non-Human", "Warrior", "Male")
+("Hughe Mann","Human", "Fighter", "Male")
+("Gloria Summers", "Human", "Bard", "Female")
+("Samuel Peterson", "Human", "Detective", "Male")
+("Adler Needles", "Human", "Doctor", "Male")
+("Nicholas Carter", "Human", "Marshal", "Male")
+("Anthony Moor", "Human", "Mobster", "Male")
+("Morgan Schulman", "Human", "Chemist", "Female")
+("Jannet Golman", "Human", "Survialist", "Female")
+("Wallace Francisco Delvore IV", "Swordman","Human", "Male")
+("Ritch Wright", "Human", "Bard", "Male")
+("Odo", "Shapeshifter", "Rouge", "Female")
+("Gertrude Stinebeck", "Human", "Noble", "Female")
 
 -- Poem? --
 
