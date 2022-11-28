@@ -1,7 +1,13 @@
-# Repository Name: FantasyCreator
-# Project Name: Fantasy Adventure Online
+# Repository Name: 
+  - FantasyCreator
+# Project Name: 
+  - Fantasy Adventure Online
 ---------------------------------
-# Progamming Languages Used: Python, CSS, MySQL
+# Progamming Languages Used: 
+  - Python
+  - CSS
+  - HTML
+  - MySQL
 ---------------------------------
 # Process
   - Planning Out Timeline
