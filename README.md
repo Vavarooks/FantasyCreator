@@ -1,6 +1,6 @@
 # Repository Name: 
   - FantasyCreator
-# Project Name: 
+## Project Name: 
   - Fantasy Adventure Online
 ---------------------------------
 # Progamming Languages Used: 
@@ -22,4 +22,4 @@
   I remember websites where you can make characters and explore new worlds. So to get closer to my dream
   I decided to try my hand at making a fantasy adventure website. One where you can go on quest and find items to sell.
   There would be a leveling system and a battle system where you could level up and upgrade your character's stats. I also
-  wanted to have a friends system and guild system so that users on the website could connect with one another and plat together.
+  wanted to have a friends system and guild system so that users on the website could connect with one another and play together.
